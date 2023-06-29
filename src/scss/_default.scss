@@ -1,0 +1,37 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FFFAF5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+button{
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+
+img, svg {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+.container {
+    padding: var(--padding-container);
+    max-width: var(--width-container);
+    margin: 0 auto;
+
+    @media (min-width: 767px) {
+        --width-container: 768px;
+    }
+
+    @media (min-width: 1439px) {
+        --width-container: 1440px;
+        --padding-container: 0 135px;
+    }
+}
