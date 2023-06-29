@@ -5,7 +5,7 @@ import {TopSlider} from "./components/TopSlider";
 function App() {
   return (
     <div className="App">
-      <Header />
+        <Header />
         <TopSlider />
     </div>
   );
