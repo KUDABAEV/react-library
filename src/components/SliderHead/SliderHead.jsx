@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
+import './slick.css';
 import './slider-head.scss';
 
 
@@ -12,13 +12,12 @@ export const SliderHead = () => {
         infinite: true,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        autoplay: 3000,
     };
 
     return (
-        <div className="slider">
-
-            <Slider {...settings}>
+            <Slider className='sliderHead' {...settings}>
                 <div className='slider__item'>
                     <img src="/img/topSlider.png" alt="Слайдер"/>
                 </div>
@@ -29,7 +28,5 @@ export const SliderHead = () => {
                     <img src="/img/topSlider.png" alt="Слайдер"/>
                 </div>
             </Slider>
-
-        </div>
     )
 }

@@ -1,0 +1,33 @@
+.cart-item{
+  width: 184px;
+  height: 352px;
+  padding: 25px 18px;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 15px 0 #00000040;
+  margin: 13px;
+
+
+  &__price {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 35px;
+    color: #241400;
+  }
+  &__title {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 23px;
+    color: #241400;
+    white-space: nowrap;
+  }
+  &__author {
+    font-size: 11px;
+    line-height: 23px;
+    color: #241400;
+  }
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

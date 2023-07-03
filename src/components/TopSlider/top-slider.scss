@@ -35,12 +35,12 @@
 
   &-right{
     min-height: 260px;
-    background: url('./../../../public/img/background-slider.svg') center/334px no-repeat;
+    background: url('./../../../public/img/background-slider.svg') right bottom/contain no-repeat;
     height: 100%;
   }
 
   @media (min-width: 767px) {
-    padding: 92px 0 0 0;
+    padding: 92px 0 93px 0;
 
     &-left {
       margin-bottom: 93px;
@@ -64,6 +64,7 @@
   }
 
   @media (min-width: 1439px) {
+    padding-bottom: 75px;
     &-content {
       display: flex;
       align-items: center;
