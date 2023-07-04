@@ -1,0 +1,36 @@
+.delivery__content {
+  text-align: center;
+  margin-bottom: 45px;
+  &-text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 23.54px;
+    color: #241400;
+    margin-bottom: 10px;
+  }
+  &-link {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 23.54px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .delivery__content {
+    margin-bottom: 93px;
+    .title {
+      margin-bottom: 50px;
+    }
+  }
+}
+@media (min-width: 1439px) {
+  .delivery__content {
+    margin-bottom: 75px;
+    .title {
+      margin-bottom: 55px;
+    }
+  }
+}
