@@ -1,0 +1,17 @@
+.about__item {
+  display: flex;
+  gap: 0 18px;
+  align-items: center;
+
+  &-count {
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 98px;
+    color: #241400;
+  }
+  &-description {
+    font-size: 13px;
+    line-height: 25.5px;
+    color: #241400;
+  }
+}

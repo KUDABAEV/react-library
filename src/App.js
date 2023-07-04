@@ -4,6 +4,7 @@ import {Receipts} from "./components/Receipts";
 import {Sale} from "./components/Sale";
 import {Catalog} from "./components/Catalog";
 import './scss/index.scss';
+import {About} from "./components/About";
 
 
 
@@ -15,6 +16,7 @@ function App() {
         <Receipts />
         <Sale />
         <Catalog />
+        <About />
     </div>
   );
 }
