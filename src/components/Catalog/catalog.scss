@@ -1,0 +1,36 @@
+.catalog {
+  padding-bottom: 45px;
+  .title {
+    margin-bottom: 30px;
+  }
+  &__items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px 0;
+  }
+}
+
+@media (min-width: 767px) {
+  .catalog {
+
+    .title {
+      margin-bottom: 50px;
+    }
+
+    &__items {
+      align-items: unset;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+  }
+
+}
+
+@media (min-width: 1439px) {
+  .catalog {
+    padding: 0 226px 75px 226px;
+  }
+}
