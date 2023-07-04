@@ -6,6 +6,7 @@ import {Catalog} from "./components/Catalog";
 import './scss/index.scss';
 import {About} from "./components/About";
 import {Delivery} from "./components/Delivery";
+import {Social} from "./components/Social";
 
 
 
@@ -19,6 +20,7 @@ function App() {
         <Catalog />
         <About />
         <Delivery />
+        <Social />
     </div>
   );
 }

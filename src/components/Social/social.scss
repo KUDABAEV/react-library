@@ -1,0 +1,38 @@
+.social__content {
+  margin-bottom: 108px;
+  .title {
+    margin-bottom: 30px;
+  }
+  &-items {
+    display: flex;
+    align-items: center;
+    gap: 0 9px;
+  }
+}
+
+@media (min-width: 767px) {
+  .social__content {
+    margin-bottom: 93px;
+    &-items {
+      justify-content: center;
+    }
+    &-img {
+      width: 63px;
+      height: 63px;
+    }
+  }
+}
+
+@media (min-width: 1439px) {
+  .social__content {
+    margin-bottom: 75px;
+    &-item {
+      &:nth-child(2){
+        display: none;
+      }
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+}
