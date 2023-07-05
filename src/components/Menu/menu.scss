@@ -1,0 +1,25 @@
+//Header
+.menu{
+  display: flex;
+  list-style: none;
+  gap: 0 15px;
+}
+
+.menu__item-link{
+  color: #241400;
+  transition: all 0.5s;
+}
+.menu__item-link:hover{
+  color: #E16A00;
+}
+
+
+.header .nav {
+  display: none;
+}
+
+@media (min-width: 1439px) {
+  .header .nav{
+    display: block;
+  }
+}

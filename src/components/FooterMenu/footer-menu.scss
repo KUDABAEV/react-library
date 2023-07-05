@@ -1,0 +1,21 @@
+.footer__menu {
+  display: none;
+
+  &-title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 35px;
+    color: #FFFFFF;
+  }
+  &-link {
+    color: #FFFFFF;
+    font-size: 13px;
+    line-height: 25.5px;
+  }
+}
+
+@media (min-width: 767px) {
+  .footer__menu {
+    display: block;
+  }
+}

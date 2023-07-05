@@ -3,11 +3,11 @@ import {TopSlider} from "./components/TopSlider";
 import {Receipts} from "./components/Receipts";
 import {Sale} from "./components/Sale";
 import {Catalog} from "./components/Catalog";
-import './scss/index.scss';
 import {About} from "./components/About";
 import {Delivery} from "./components/Delivery";
 import {Social} from "./components/Social";
-
+import {Footer} from "./components/Footer";
+import './scss/index.scss';
 
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
         <About />
         <Delivery />
         <Social />
+        <Footer />
     </div>
   );
 }

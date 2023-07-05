@@ -1,0 +1,142 @@
+.footer {
+  padding: 15px 0;
+  background-color: #391F00;
+
+  &__content-top {
+
+    .logo {
+      display: flex;
+      justify-content: center;
+    }
+    .logo-svg {
+      color: #FFFFFF;
+      width: 178px;
+      height: 42px;
+    }
+
+  }
+  .menu {
+    gap: 0 7px;
+  }
+
+  .nav {
+    margin-bottom: 11px;
+    .menu {
+      display: flex;
+      &__item-link {
+        color: #F2F2F2;
+        font-size: 12px;
+      }
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  &__phone {
+    font-weight: 900;
+    color: #FFFFFF;
+    font-size: 12px;
+    line-height: 23.54px;
+  }
+
+  &__button {
+    font-weight: 500;
+    color: #E16A00;
+    font-size: 12px;
+    line-height: 23.54px;
+    border: 1px solid #E16A00;
+    width: 120px;
+    height: 20.82px;
+  }
+
+  &__copy {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    &-left{
+      font-size: 12px;
+      line-height: 23.54px;
+      color: #FFFFFF;
+    }
+    &-right{
+      font-size: 12px;
+      line-height: 23.54px;
+      color: #FFFFFF;
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .footer {
+
+    .menu {
+      gap: 0 21px;
+    }
+    &__content-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__contacts {
+      padding-top: 40px;
+    }
+    &__content {
+      &-average {
+        display: flex;
+        gap: 0 91px;
+        margin-bottom: 24px;
+      }
+    }
+
+    &__copy {
+      flex-direction: row;
+      gap: 0 25px;
+
+      &-left {
+        font-size: 10px;
+        line-height: 19px;
+      }
+      &-right {
+        font-size: 10px;
+        line-height: 19px;
+
+      }
+    }
+  }
+}
+
+
+@media (min-width: 1439px) {
+  .footer {
+    padding: 56px 0 9px 0;
+    .nav {
+      display: none;
+    }
+    &__content {
+
+      &-top {
+        margin-bottom: -100px;
+      }
+      &-average {
+        justify-content: center;
+        margin-bottom: 50px;
+      }
+    }
+    &__copy {
+      justify-content: center;
+      &-left{
+        font-size: 12px;
+        line-height: 23.54px;
+      }
+      &-right{
+        font-size: 12px;
+        line-height: 23.54px;
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import './header.scss';
+import {Menu} from "../Menu";
 
 export const Header = () => {
   return (
@@ -14,25 +15,7 @@ export const Header = () => {
 
             </div>
 
-            <nav className="nav">
-              <ul className="menu">
-                <li className="menu__item">
-                  <a href="" className="menu__item-link">Акции</a>
-                </li>
-                <li className="menu__item">
-                  <a href="" className="menu__item-link">Каталлог</a>
-                </li>
-                <li className="menu__item">
-                  <a href="" className="menu__item-link">Доставка</a>
-                </li>
-                <li className="menu__item">
-                  <a href="" className="menu__item-link">О магазине</a>
-                </li>
-                <li className="menu__item">
-                  <a href="" className="menu__item-link">Блог</a>
-                </li>
-              </ul>
-            </nav>
+            <Menu />
 
             <div className="header__search">
               <input className="header__search-input" type="text" placeholder="Поиск" />
