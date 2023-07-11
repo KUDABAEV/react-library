@@ -1,7 +1,7 @@
 import React from "react";
-import './cart-item.scss';
 import {Button} from "../Button";
 import {FavoriteButton} from "../FavoriteButton";
+import './cart-item.scss';
 
 export const CartItem = ({img, price, title, author}) => {
 

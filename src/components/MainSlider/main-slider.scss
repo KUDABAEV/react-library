@@ -3,8 +3,9 @@
 }
 
 .slider__items {
-  // margin-bottom: 54px;
-  // width: 75vw;
+  .react-multi-carousel-track{
+    gap: 0 62px;
+  }
 }
 
 .slider__items .slick-list {
@@ -16,19 +17,9 @@
 
 }
 
-// 
 
 .myCarousel {
-  // position: relative;
-  // max-width: 100%;
-  // .react-multi-carousel-list  {
-  //   width: 100% !important;
+  .cart-item{
 
-  //   .react-multi-carousel-track {
-  //     padding-left: 50px;
-  //     // background-color: aquamarine;
-  //     display: flex;
-  //     gap: 0 50px;
-  //   }
-  // }
+  }
 }

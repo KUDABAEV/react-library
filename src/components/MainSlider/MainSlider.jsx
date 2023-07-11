@@ -15,13 +15,13 @@ export const MainSlider = () => {
                           arrows
                           autoPlaySpeed={3000}
                           centerMode
-                          className=""
+                          className="myCarousel"
                           containerClass="container"
-                          dotListClass=""
+                          // dotListClass=""
                           draggable
                           focusOnSelect={false}
                           infinite
-                          itemClass=""
+                          itemClass="carousel-item-padding-40-px"
                           keyBoardControl
                           minimumTouchDrag={80}
                           pauseOnHover
@@ -32,22 +32,22 @@ export const MainSlider = () => {
                               desktop: {
                                   breakpoint: {
                                       max: 3000,
-                                      min: 1024
+                                      min: 1439
                                   },
                                   items: 5,
                                   partialVisibilityGutter: 40
                               },
                               tablet: {
                                   breakpoint: {
-                                      max: 1024,
-                                      min: 464
+                                      max: 1439,
+                                      min: 767
                                   },
-                                  items: 1,
+                                  items: 3,
                                   partialVisibilityGutter: 30
                               },
                               mobile: {
                                 breakpoint: {
-                                    max: 500,
+                                    max: 767,
                                     min: 0
                                 },
                                 items: 1,
@@ -68,6 +68,7 @@ export const MainSlider = () => {
                     <CartItem img='/img/cart3.jpg' title='Зося з вулиці Котячої' author='Агнешка Тишка' price={86}/>
                     <CartItem img='/img/cart4.jpg' title='Мотиватор' author='Наталья Зотова' price={214}/>
                     <CartItem img='/img/cart5.jpg' title='Без маски' author='Михаил Бурняшев' price={778}/>
+
                     <CartItem img='/img/cart1.jpg' title='Порядок в Хаосе' author='Константин Коптелов' price={300}/>
                     <CartItem img='/img/cart2.jpg' title='Смарагдова книга' author='Керстин Гир' price={225}/>
                     <CartItem img='/img/cart3.jpg' title='Зося с улицы Кошачьей' author='Агнешка Тишка' price={86}/>

@@ -1,8 +1,13 @@
 import React from 'react'
-import './header.scss';
 import {Menu} from "../Menu";
+import {BasketMenu} from "../BasketMenu";
+import './header.scss';
+
 
 export const Header = () => {
+
+  const [openCart, setOpenCart] = React.useState(false);
+
   return (
       <header className='header'>
         <div className="container">
@@ -27,21 +32,31 @@ export const Header = () => {
               </div>
 
               <div className="header__hub-buttons ">
-                <button className="header__hub-favorites">
+
+                <a className="header__hub-favorites">
                   <img src="/img/favorites.svg" alt="Закладки" />
-                </button>
-                <button className="header__hub-basket">
+                </a>
+
+                <a href='#' className="header__hub-basket">
                   <img src="/img/basket.svg" alt="Корзина" />
-                </button>
+                </a>
+
+
               </div>
 
               <div className="header__hub-price">
                 <p>2345 руб.</p>
               </div>
 
-              <button className="header__hub-cartmenu">
+              <button onClick={() => setOpenCart(!openCart)} className="header__hub-cartMenu">
                 <img src="/img/cartMenu.png" alt="CartMenu" />
               </button>
+              {
+                  openCart && <div className='header__hub-basketMenu'>
+                    <BasketMenu />
+                    <BasketMenu />
+                  </div>
+              }
             </div>
 
             <div className="header__burger">

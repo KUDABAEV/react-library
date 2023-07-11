@@ -1,9 +1,7 @@
 import React from "react";
-
-import './sale.scss';
 import {Title} from "../Title";
 import {MainSlider} from "../MainSlider";
-
+import './sale.scss';
 
 
 export const Sale = () => {

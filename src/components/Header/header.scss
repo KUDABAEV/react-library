@@ -24,11 +24,25 @@
         align-items: center;
         justify-content: space-between;
         padding-top: 16px;
+        &-buttons {
+            position: relative;
+        }
+        &-basketMenu{
+            position: absolute;
+            top: 80px;
+            right: 175px;
+            width: 400px;
+            background-color: #ffffff;
+            z-index: 2;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.45);
+        }
         &-phone {
             font-weight: 900;
             font-size: 12px;
         }
         &-favorites{
+            display: inline-block;
             padding-left: 7px;
             padding-right: 5px;
             border: none;
@@ -36,6 +50,7 @@
             cursor: pointer;
         }
         &-basket{
+            display: inline-block;
             border: none;
             background: none;
             cursor: pointer;
@@ -45,7 +60,7 @@
             font-weight: 400;
             font-size: 14px;
         }
-        &-cartmenu{
+        &-cartMenu{
             border: none;
             background: none;
             cursor: pointer;

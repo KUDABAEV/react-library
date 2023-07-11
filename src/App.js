@@ -1,3 +1,4 @@
+import React from "react";
 import {Header} from "./components/Header";
 import {TopSlider} from "./components/TopSlider";
 import {Receipts} from "./components/Receipts";
@@ -11,19 +12,19 @@ import './scss/index.scss';
 
 
 function App() {
-  return (
-    <div className="App">
-        <Header />
-        <TopSlider />
-        <Receipts />
-        <Sale />
-        <Catalog />
-        <About />
-        <Delivery />
-        <Social />
-        <Footer />
-    </div>
-  );
+    return (
+        <div className="App">
+            <Header />
+            <TopSlider />
+            <Receipts />
+            <Sale />
+            <Catalog />
+            <About />
+            <Delivery />
+            <Social />
+            <Footer />
+        </div>
+    );
 }
 
 export default App;

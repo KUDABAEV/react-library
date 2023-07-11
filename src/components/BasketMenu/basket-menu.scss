@@ -1,0 +1,14 @@
+.basket-menu {
+  color: #4D2900;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  padding: 10px;
+  &__img {
+    width: 40px;
+    height: 50px;
+  }
+}
+
+
