@@ -4,11 +4,11 @@ import {MainSlider} from "../MainSlider";
 import './sale.scss';
 
 
-export const Sale = () => {
+export const Sale = ({books, isLoading}) => {
     return (
         <div className='sale'>
             <Title title='Распродажа'/>
-            <MainSlider />
+            <MainSlider books={books} isLoading={isLoading}/>
         </div>
     )
 }

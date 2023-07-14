@@ -6,6 +6,7 @@
   .react-multi-carousel-track{
     gap: 0 62px;
   }
+
 }
 
 .slider__items .slick-list {
@@ -19,7 +20,7 @@
 
 
 .myCarousel {
-  .cart-item{
-
+  .react-multi-carousel-item{
+    width: 195px !important;
   }
 }

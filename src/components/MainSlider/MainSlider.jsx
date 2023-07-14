@@ -1,12 +1,13 @@
 import React from "react";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import BookSkeleton from "./Skeleton";
 import {CartItem} from "../CartItem";
 import './main-slider.scss';
 
 
-export const MainSlider = () => {
 
+export const MainSlider = ({books, isLoading}) => {
 
     return (
         <div className='container '>
@@ -17,11 +18,11 @@ export const MainSlider = () => {
                           centerMode
                           className="myCarousel"
                           containerClass="container"
-                          // dotListClass=""
+                          dotListClass=""
                           draggable
                           focusOnSelect={false}
                           infinite
-                          itemClass="carousel-item-padding-40-px"
+                          itemClass=""
                           keyBoardControl
                           minimumTouchDrag={80}
                           pauseOnHover
@@ -63,17 +64,16 @@ export const MainSlider = () => {
                           slidesToSlide={1}
                           swipeable
                 >
-                    <CartItem img='/img/cart1.jpg' title='Порядок в Хаосе' author='Константин Коптелов' price={300}/>
-                    <CartItem img='/img/cart2.jpg' title='Смарагдова книга' author='Керстин Гир' price={225}/>
-                    <CartItem img='/img/cart3.jpg' title='Зося з вулиці Котячої' author='Агнешка Тишка' price={86}/>
-                    <CartItem img='/img/cart4.jpg' title='Мотиватор' author='Наталья Зотова' price={214}/>
-                    <CartItem img='/img/cart5.jpg' title='Без маски' author='Михаил Бурняшев' price={778}/>
-
-                    <CartItem img='/img/cart1.jpg' title='Порядок в Хаосе' author='Константин Коптелов' price={300}/>
-                    <CartItem img='/img/cart2.jpg' title='Смарагдова книга' author='Керстин Гир' price={225}/>
-                    <CartItem img='/img/cart3.jpg' title='Зося с улицы Кошачьей' author='Агнешка Тишка' price={86}/>
-                    <CartItem img='/img/cart4.jpg' title='Мотиватор' author='Наталья Зотова' price={214}/>
-                    <CartItem img='/img/cart5.jpg' title='Без маски' author='Михаил Бурняшев' price={778}/>
+                    {
+                        isLoading
+                            ? [... new Array(10)].map((_,index) => <BookSkeleton key={index} />)
+                            : books.map((obj) => (
+                                <CartItem
+                                    key={obj.id}
+                                    {...obj}
+                                />
+                            ))
+                    }
                 </Carousel>
                 
             </div>

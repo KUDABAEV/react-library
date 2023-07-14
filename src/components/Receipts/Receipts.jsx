@@ -3,9 +3,11 @@ import { Title } from "../Title";
 import { MainSlider } from "../MainSlider";
 import './receipts.scss';
 
+export const Receipts = ({books, isLoading}) => {
 
+    const [select, setSelect] = React.useState(1);
+    const menuBooks = ['Фантастика', 'Саморазвитие', 'Детективы', 'Детские', 'Аудиокниги', 'Другое'];
 
-export const Receipts = () => {
     return (
         <div className='receipts'>
             <div className="container">
@@ -18,22 +20,15 @@ export const Receipts = () => {
 
                             <ul className='menu-receipts'>
 
-                                <li className='menu-receipts__item'>
-                                    <a className='menu-receipts__item-link' href="#">Фантастика</a>
-                                </li>
-                                <li className='menu-receipts__item'>
-                                    <a className='menu-receipts__item-link' href="#">Саморазвитие</a>
-                                </li>
-                                <li className='menu-receipts__item'>
-                                    <a className='menu-receipts__item-link' href="#">Детективы</a>
-                                </li>
-                                <li className='menu-receipts__item'>
-                                    <a className='menu-receipts__item-link' href="#">Детские</a>
-                                </li>
-                                <li className='menu-receipts__item'>
-                                    <a className='menu-receipts__item-link' href="#">Другое</a>
-                                </li>
-
+                                {
+                                    menuBooks.map((item, index) => (
+                                        <li
+                                            key={index}
+                                            onClick={() => setSelect(index)}
+                                            className={select === index ? 'active' : ''}
+                                        >{item}</li>
+                                    ))
+                                }
                             </ul>
 
                         </nav>
@@ -41,7 +36,7 @@ export const Receipts = () => {
                 </div>
             </div>
 
-            <MainSlider />
+            <MainSlider books={books} isLoading={isLoading}/>
         </div>
     )
 }

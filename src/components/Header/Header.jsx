@@ -1,8 +1,9 @@
 import React from 'react'
 import {Menu} from "../Menu";
 import {BasketMenu} from "../BasketMenu";
+import {Link} from "react-router-dom";
+import {Logo} from "../Logo";
 import './header.scss';
-
 
 export const Header = () => {
 
@@ -13,12 +14,7 @@ export const Header = () => {
         <div className="container">
           <div className="header__content">
 
-            <div className="header__logo">
-              <svg className="header__logo-svg" viewBox="0 0 199 44" role="img" aria-label="Логотип">
-                <use href="./img/sprite.svg#logo"/>
-              </svg>
-
-            </div>
+            <Logo />
 
             <Menu />
 
@@ -27,6 +23,7 @@ export const Header = () => {
             </div>
 
             <div className="header__hub">
+
               <div className="header__hub-phone">
                 +38 (071) 339-16-26
               </div>
@@ -37,9 +34,9 @@ export const Header = () => {
                   <img src="/img/favorites.svg" alt="Закладки" />
                 </a>
 
-                <a href='#' className="header__hub-basket">
+                <Link to='/basket' className="header__hub-basket">
                   <img src="/img/basket.svg" alt="Корзина" />
-                </a>
+                </Link>
 
 
               </div>
