@@ -25,7 +25,7 @@ export const SliderHead = () => {
                     <img src="/img/topSlider-transformed.png" alt="Слайдер"/>
                 </div>
                 <div className='slider__item'>
-                    <img src="/img/topSlider.png" alt="Слайдер"/>
+                    <img src="/img/slider3.png" alt="Слайдер"/>
                 </div>
             </Slider>
     )

@@ -3,9 +3,9 @@ import { Title } from "../Title";
 import { MainSlider } from "../MainSlider";
 import './receipts.scss';
 
-export const Receipts = ({books, isLoading}) => {
+export const Receipts = ({books, isLoading, categoryId, changeCategoryId}) => {
 
-    const [select, setSelect] = React.useState(1);
+
     const menuBooks = ['Фантастика', 'Саморазвитие', 'Детективы', 'Детские', 'Аудиокниги', 'Другое'];
 
     return (
@@ -24,8 +24,8 @@ export const Receipts = ({books, isLoading}) => {
                                     menuBooks.map((item, index) => (
                                         <li
                                             key={index}
-                                            onClick={() => setSelect(index)}
-                                            className={select === index ? 'active' : ''}
+                                            onClick={() => changeCategoryId(index)}
+                                            className={categoryId === index ? 'active' : ''}
                                         >{item}</li>
                                     ))
                                 }

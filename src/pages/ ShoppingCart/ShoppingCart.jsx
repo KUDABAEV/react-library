@@ -25,6 +25,7 @@ export const ShoppingCart = () => {
                             </header>
 
                             <Product />
+                            <Product />
                             <footer className="cart-footer">
                                 <div className="cart-footer__count">3 единицы</div>
                                 <div className="cart-footer__price">329 000 руб.</div>

@@ -13,20 +13,27 @@ export const Home = () => {
 
     const [books, setBooks] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
+    const [categoryId, setCategoryId] = React.useState(1);
 
     React.useEffect(() => {
-        fetch('https://library-name.onrender.com/books')
+        setIsLoading(true);
+        fetch('https://library-name.onrender.com/books?categoryId=' + categoryId)
             .then((res) => res.json())
             .then((arr) => {
                 setBooks(arr);
                 setIsLoading(false);
             });
-    },[]);
+    },[categoryId]);
 
     return (
         <>
             <TopSlider />
-            <Receipts books={books} isLoading={isLoading}/>
+            <Receipts
+                books={books}
+                isLoading={isLoading}
+                categoryId={categoryId}
+                changeCategoryId={(i) => setCategoryId(i)}
+            />
             <Sale books={books} isLoading={isLoading}/>
             <Catalog />
             <About />

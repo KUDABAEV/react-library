@@ -12,23 +12,24 @@ export const MainSlider = ({books, isLoading}) => {
     return (
         <div className='container '>
             <div className='slider__items myCarousel'>
-                <Carousel additionalTransfrom={0}
+                <Carousel
+                          // additionalTransfrom={0}
                           arrows
-                          autoPlaySpeed={3000}
-                          centerMode
+                          // autoPlaySpeed={3000}
+                          //centerMode={true}
                           className="myCarousel"
-                          containerClass="container"
-                          dotListClass=""
-                          draggable
-                          focusOnSelect={false}
-                          infinite
-                          itemClass=""
-                          keyBoardControl
-                          minimumTouchDrag={80}
-                          pauseOnHover
-                          renderArrowsWhenDisabled={false}
-                          renderButtonGroupOutside={false}
-                          renderDotsOutside={false}
+                          // containerClass="container"
+                          // dotListClass=""
+                          // draggable
+                          // focusOnSelect={false}
+                          // infinite={true}
+                          // itemClass=""
+                          // keyBoardControl
+                          // minimumTouchDrag={80}
+                          // pauseOnHover
+                          // renderArrowsWhenDisabled={false}
+                          // renderButtonGroupOutside={false}
+                          // renderDotsOutside={false}
                           responsive={{
                               desktop: {
                                   breakpoint: {
@@ -55,14 +56,14 @@ export const MainSlider = ({books, isLoading}) => {
                                 partialVisibilityGutter: 30
                             },
                           }}
-                          rewind={false}
-                          rewindWithAnimation={false}
-                          rtl={false}
-                          shouldResetAutoplay
-                          showDots={false}
-                          sliderClass=""
+                          // rewind={false}
+                          // rewindWithAnimation={false}
+                          // rtl={false}
+                          // shouldResetAutoplay
+                          // showDots={false}
+                          // sliderClass=""
                           slidesToSlide={1}
-                          swipeable
+                          // swipeable
                 >
                     {
                         isLoading
@@ -75,7 +76,6 @@ export const MainSlider = ({books, isLoading}) => {
                             ))
                     }
                 </Carousel>
-                
             </div>
         </div>
     )
