@@ -8,10 +8,10 @@ import {Delivery} from "../../components/Delivery";
 import {Social} from "../../components/Social";
 
 
-
 export const Home = () => {
 
     const [books, setBooks] = React.useState([]);
+    const [sale, setSale] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
     const [categoryId, setCategoryId] = React.useState(1);
 
@@ -25,6 +25,15 @@ export const Home = () => {
             });
     },[categoryId]);
 
+    React.useEffect(() => {
+        fetch('https://library-name.onrender.com/books?categoryId=6')
+            .then((res) => res.json())
+            .then((arr) => {
+                setSale(arr);
+                setIsLoading(false);
+            });
+    },[]);
+
     return (
         <>
             <TopSlider />
@@ -34,7 +43,7 @@ export const Home = () => {
                 categoryId={categoryId}
                 changeCategoryId={(i) => setCategoryId(i)}
             />
-            <Sale books={books} isLoading={isLoading}/>
+            <Sale books={sale} isLoading={isLoading}/>
             <Catalog />
             <About />
             <Delivery />

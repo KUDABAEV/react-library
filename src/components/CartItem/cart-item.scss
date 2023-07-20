@@ -16,6 +16,16 @@
     line-height: 35px;
     color: #241400;
   }
+
+  &__oldPrice {
+    font-weight: 400;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 29.43px;
+    text-decoration: line-through;
+    color: #D70000;
+    padding: 0 0 0 10px;
+  }
   &__title {
     font-size: 12px;
     font-weight: 700;
