@@ -1,9 +1,11 @@
 import React from 'react'
 import {Menu} from "../Menu";
-import {BasketMenu} from "../BasketMenu";
+import {Card} from "../Card";
 import {Link} from "react-router-dom";
 import {Logo} from "../Logo";
+import {Search} from "../Search";
 import './header.scss';
+import {FloatingWindow} from "../FloatingWindow";
 
 export const Header = () => {
 
@@ -18,9 +20,7 @@ export const Header = () => {
 
             <Menu />
 
-            <div className="header__search">
-              <input className="header__search-input" type="text" placeholder="Поиск" />
-            </div>
+            <Search />
 
             <div className="header__hub">
 
@@ -49,10 +49,10 @@ export const Header = () => {
                 <img src="/img/cartMenu.png" alt="CartMenu" />
               </button>
               {
-                  openCart && <div className='header__hub-basketMenu'>
-                    <BasketMenu />
-                    <BasketMenu />
-                  </div>
+                  openCart && <FloatingWindow>
+                    <Card img='/img/cart1.jpg' title='порядок в Хаосе' price={300}/>
+                    <Card img='/img/cart1.jpg' title='порядок в Хаосе' price={300}/>
+                  </FloatingWindow>
               }
             </div>
 
