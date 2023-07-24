@@ -11,11 +11,17 @@ import './search.scss';
 
 export const Search = () => {
 
+    const [value, setValue] = React.useState('');
+
     const { newSearchText, responseSearchBooks } = useSelector(state => state.search);
     const dispatch = useDispatch();
 
     const inputRef = React.useRef();
 
+    const onClickClose = () => {
+        dispatch(setNewSearchText(''));
+        inputRef.current.focus();
+    }
     const updateSearchValue = React.useCallback(
         debounce((str) => {
             dispatch(setNewSearchText(str));
@@ -23,13 +29,9 @@ export const Search = () => {
         [],
     )
 
-    const onClickClose = () => {
-        dispatch(setNewSearchText(''));
-        inputRef.current.focus();
-    }
 
     const onChangeInput = (event) => {
-        dispatch(setNewSearchText(event.target.value));
+        setValue(event.target.value)
         updateSearchValue(event.target.value);
     }
 
@@ -46,7 +48,7 @@ export const Search = () => {
             <input
                 ref={inputRef}
                 onChange={onChangeInput}
-                value={newSearchText}
+                value={value}
                 className="header__search-input"
                 type="text"
                 placeholder="Поиск"
@@ -74,7 +76,7 @@ export const Search = () => {
 
                     <FloatingWindow>
                         {
-                            responseSearchBooks.map(item => <Card img={item.imageUrl} title={item.title} price={item.price}/>)
+                            responseSearchBooks.map(item => <Card key={item.id} img={item.imageUrl} title={item.title} price={item.price}/>)
                         }
                     </FloatingWindow>
 
