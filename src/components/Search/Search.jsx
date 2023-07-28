@@ -7,8 +7,6 @@ import {setNewSearchText, setResponseSearchBooks} from "../../redux/slices/searc
 import debounce from 'lodash.debounce';
 import './search.scss';
 
-
-
 export const Search = () => {
 
     const [value, setValue] = React.useState('');
@@ -19,6 +17,7 @@ export const Search = () => {
     const inputRef = React.useRef();
 
     const onClickClose = () => {
+        setValue('');
         dispatch(setNewSearchText(''));
         inputRef.current.focus();
     }
@@ -28,7 +27,6 @@ export const Search = () => {
         }, 1000),
         [],
     )
-
 
     const onChangeInput = (event) => {
         setValue(event.target.value)
@@ -70,7 +68,6 @@ export const Search = () => {
                     </svg>
                 )
             }
-
             {
                 newSearchText && (
 
@@ -79,10 +76,8 @@ export const Search = () => {
                             responseSearchBooks.map(item => <Card key={item.id} img={item.imageUrl} title={item.title} price={item.price}/>)
                         }
                     </FloatingWindow>
-
                 )
             }
-
         </div>
     )
 }

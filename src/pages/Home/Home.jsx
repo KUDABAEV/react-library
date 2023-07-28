@@ -13,7 +13,7 @@ import {setCategoryId} from "../../redux/slices/categorySlice";
 
 export const Home = () => {
 
-    const { categoryId, categorySale } = useSelector(state => state.category)
+    const {categoryId, categorySale} = useSelector(state => state.category)
     const dispatch = useDispatch();
 
     const onChangeCategory = (id) => {
@@ -27,12 +27,23 @@ export const Home = () => {
 
     React.useEffect(() => {
         setIsLoading(true);
-        axios.get('https://library-name.onrender.com/books?categoryId=' + categoryId)
-            .then(response => {
-                setBooks(response.data);
-                setIsLoading(false);
-            })
-    },[categoryId]);
+        if (categoryId === -1) {
+            axios.get('https://library-name.onrender.com/books')
+                .then(response => {
+                    let books = response.data.splice(0, 10);
+                    console.log(books)
+                    setBooks(books);
+                    setIsLoading(false);
+                })
+        } else {
+            axios.get('https://library-name.onrender.com/books?categoryId=' + categoryId)
+                .then(response => {
+                    setBooks(response.data);
+                    setIsLoading(false);
+                })
+        }
+
+    }, [categoryId]);
 
     React.useEffect(() => {
         axios.get(`https://library-name.onrender.com/books?categoryId=${categorySale}`)
@@ -40,11 +51,11 @@ export const Home = () => {
                 setSale(response.data);
                 setIsLoading(false);
             })
-    },[categorySale]);
+    }, [categorySale]);
 
     return (
         <>
-            <TopSlider />
+            <TopSlider/>
             <Receipts
                 books={books}
                 isLoading={isLoading}
@@ -52,10 +63,10 @@ export const Home = () => {
                 changeCategoryId={onChangeCategory}
             />
             <Sale books={sale} isLoading={isLoading}/>
-            <Catalog />
-            <About />
-            <Delivery />
-            <Social />
+            <Catalog/>
+            <About/>
+            <Delivery/>
+            <Social/>
         </>
 
     )
