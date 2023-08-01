@@ -4,8 +4,8 @@ import {Card} from "../Card";
 import {Link} from "react-router-dom";
 import {Logo} from "../Logo";
 import {Search} from "../Search";
-import './header.scss';
 import {FloatingWindow} from "../FloatingWindow";
+import './header.scss';
 
 export const Header = () => {
 

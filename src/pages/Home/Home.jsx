@@ -1,4 +1,6 @@
 import React from "react";
+import {useNavigate} from "react-router-dom";
+import qs from 'qs';
 import {TopSlider} from "../../components/TopSlider";
 import {Receipts} from "../../components/Receipts";
 import {Sale} from "../../components/Sale";
@@ -15,6 +17,7 @@ export const Home = () => {
 
     const {categoryId, categorySale} = useSelector(state => state.category)
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const onChangeCategory = (id) => {
         dispatch(setCategoryId(id))
@@ -24,14 +27,12 @@ export const Home = () => {
     const [sale, setSale] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
 
-
     React.useEffect(() => {
         setIsLoading(true);
-        if (categoryId === -1) {
+        if (categoryId === 0) {
             axios.get('https://library-name.onrender.com/books')
                 .then(response => {
                     let books = response.data.splice(0, 10);
-                    console.log(books)
                     setBooks(books);
                     setIsLoading(false);
                 })
@@ -44,6 +45,15 @@ export const Home = () => {
         }
 
     }, [categoryId]);
+    //
+    React.useEffect(() => {
+        let id = window.location.search.split('?categoryId=')[1];
+        if (id === undefined) {
+            id = 0;
+        }
+        dispatch(setCategoryId(+id))
+    }, [])
+    //
 
     React.useEffect(() => {
         axios.get(`https://library-name.onrender.com/books?categoryId=${categorySale}`)
@@ -52,6 +62,13 @@ export const Home = () => {
                 setIsLoading(false);
             })
     }, [categorySale]);
+
+    React.useEffect(() => {
+        const queryString = qs.stringify({
+            categoryId,
+        })
+        navigate(`?${queryString}`);
+    },[categoryId])
 
     return (
         <>

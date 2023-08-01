@@ -1,13 +1,8 @@
+import axios from "axios";
 
-
-async function  getAnswer  (url) {
-    const answer = await  fetch(url);
-    const data = await  answer.json();
-
-    console.log(data)
-
-    return data;
-
+function  getAnswer  (url, callback) {
+    axios.get(url)
+        .then(response => callback(response.data))
 }
 
 export  {
