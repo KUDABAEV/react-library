@@ -10,6 +10,10 @@
   padding: 3px 13px;
   border-radius: 3px;
   box-shadow: 0 3px 8px rgba(225, 106, 0, 0.19);
+  transition: all .5s;
+  &:hover{
+    background-color: #D70000;
+  }
 }
 
 

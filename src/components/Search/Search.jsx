@@ -10,9 +10,9 @@ import './search.scss';
 export const Search = () => {
 
     const [value, setValue] = React.useState('');
-
-    const { newSearchText, responseSearchBooks } = useSelector(state => state.search);
+    const {newSearchText, responseSearchBooks} = useSelector(state => state.search);
     const dispatch = useDispatch();
+    const searchRef = React.useRef()
 
     const inputRef = React.useRef();
 
@@ -41,8 +41,29 @@ export const Search = () => {
             .then(response => dispatch(setResponseSearchBooks(response.data)))
     }, [newSearchText]);
 
+    const handleClickOutside = (event) => {
+        if (!event.composedPath().includes(searchRef.current)) {
+            setValue('');
+            dispatch(setNewSearchText(false));
+            console.log('outside')
+        }
+        document.body.removeEventListener('click', handleClickOutside)
+    }
+    React.useEffect(() => {
+        document.body.addEventListener('click', handleClickOutside);
+    }, [newSearchText])
+
+    React.useEffect(() => {
+
+        document.body.addEventListener('click', handleClickOutside);
+        return () => {
+            console.log('test')
+            document.body.removeEventListener('click', handleClickOutside)
+        }
+    }, [])
+
     return (
-        <div className="header__search">
+        <div ref={searchRef} className="header__search">
             <input
                 ref={inputRef}
                 onChange={onChangeInput}
@@ -70,10 +91,10 @@ export const Search = () => {
             }
             {
                 newSearchText && (
-
                     <FloatingWindow>
                         {
-                            responseSearchBooks.map(item => <Card key={item.id} img={item.imageUrl} title={item.title} price={item.price}/>)
+                            responseSearchBooks.map(item => <Card key={item.id} img={item.imageUrl} title={item.title}
+                                                                  price={item.price}/>)
                         }
                     </FloatingWindow>
                 )
