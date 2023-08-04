@@ -1,6 +1,5 @@
-.button {
+.btn {
   cursor: pointer;
-  background-color: #E16A00;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   line-height: 23px;
@@ -16,4 +15,10 @@
   }
 }
 
+.btn--primary {
+  background-color: #E16A00;
+}
+.btn--secondary{
+  background-color: rgb(80, 82, 84);
+}
 

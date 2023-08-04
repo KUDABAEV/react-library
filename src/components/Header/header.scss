@@ -24,9 +24,6 @@
         align-items: center;
         justify-content: space-between;
         padding-top: 16px;
-        &-buttons {
-            position: relative;
-        }
         &-basketMenu{
             position: absolute;
             top: 80px;
@@ -40,20 +37,6 @@
         &-phone {
             font-weight: 900;
             font-size: 12px;
-        }
-        &-favorites{
-            display: inline-block;
-            padding-left: 7px;
-            padding-right: 5px;
-            border: none;
-            background: none;
-            cursor: pointer;
-        }
-        &-basket{
-            display: inline-block;
-            border: none;
-            background: none;
-            cursor: pointer;
         }
         &-price {
             font-family: 'Roboto', sans-serif;
@@ -95,10 +78,9 @@
                 border: none;
                 background: none;
                 border-bottom: 1px solid #696764;
-                padding: 0 0 7px 21px;
+                padding: 0 20px 7px 21px;
                 outline: none;
                 width: 200px;
-                padding-right: 20px;
                 
                 &::placeholder {
                     font-size: 12px;
@@ -107,17 +89,12 @@
                 }
             }
         }
-
         &__hub {
             padding-top: 0;
             flex: auto;
             order: unset;
             justify-content: center;
             gap: 0 8px;
-            &-favorites {
-                padding-left: 0;
-                padding-right: 12px;
-            }
         }
     }
 
@@ -128,7 +105,6 @@
         &__burger {
             display: none;
         }
-
         &__hub {
             justify-content: flex-end;
         }

@@ -1,10 +1,20 @@
 import React from "react";
+import classNames from "classnames";
 import './button.scss';
 
+export const Button = ({onClick, type, children}) => {
 
-export const Button = ({children}) => {
+    const btnClass = classNames({
+        'btn': true,
+        'btn--secondary': type === 'secondary',
+        'btn--primary': type === 'primary',
+    })
+
     return (
-        <button className='button'>
+        <button
+            className={btnClass}
+            onClick={onClick}
+        >
             {children}
         </button>
     )

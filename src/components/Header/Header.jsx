@@ -1,15 +1,19 @@
 import React from 'react'
+import {useSelector} from "react-redux";
 import {Menu} from "../Menu";
 import {Card} from "../Card";
-import {Link} from "react-router-dom";
 import {Logo} from "../Logo";
 import {Search} from "../Search";
 import {FloatingWindow} from "../FloatingWindow";
+import {HeaderHubButtons} from "../HeaderHubButtons";
 import './header.scss';
+import {totalCalculator} from "../utils";
 
 export const Header = () => {
 
   const [openCart, setOpenCart] = React.useState(false);
+  const books = useSelector(state => state.basket.itemsInBasket);
+  const totalPrice = totalCalculator(books);
 
   return (
       <header className='header'>
@@ -28,21 +32,10 @@ export const Header = () => {
                 +38 (071) 339-16-26
               </div>
 
-              <div className="header__hub-buttons ">
-
-                <a className="header__hub-favorites">
-                  <img src="/img/favorites.svg" alt="Закладки" />
-                </a>
-
-                <Link to='/basket' className="header__hub-basket">
-                  <img src="/img/basket.svg" alt="Корзина" />
-                </Link>
-
-
-              </div>
+              <HeaderHubButtons />
 
               <div className="header__hub-price">
-                <p>2345 руб.</p>
+                {totalPrice > 0 && <p>{totalPrice} руб.</p>}
               </div>
 
               <button onClick={() => setOpenCart(!openCart)} className="header__hub-cartMenu">
