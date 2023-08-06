@@ -1,1 +1,3 @@
-export const totalCalculator = books => books.reduce((acc, game) => acc += game.price , 0)
+export const totalCalculator = books => books.reduce((acc, book) => {
+    return book.price * book.count + acc;
+}, 0)

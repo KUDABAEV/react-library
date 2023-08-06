@@ -8,6 +8,8 @@ import './header-hub-buttons.scss';
 export const HeaderHubButtons = () => {
 
     const books = useSelector(state => state.basket.itemsInBasket);
+    const countBook = books.reduce((sum,item) => sum + item.count, 0);
+    //const countBook = books.length;
     return (
         <div className="header__hub-buttons ">
 
@@ -18,7 +20,7 @@ export const HeaderHubButtons = () => {
             <Link to='/basket' className="header__hub-basket">
                 <img src="/img/basket.svg" alt="Корзина" />
             </Link>
-            <ItemInBasket countItems={books.length} />
+            <ItemInBasket countItems={countBook} />
         </div>
     );
 }

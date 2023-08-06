@@ -12,8 +12,7 @@ import {totalCalculator} from "../utils";
 export const Header = () => {
 
   const [openCart, setOpenCart] = React.useState(false);
-  const books = useSelector(state => state.basket.itemsInBasket);
-  const totalPrice = totalCalculator(books);
+  const { totalAmount } = useSelector(state => state.basket);
 
   return (
       <header className='header'>
@@ -35,7 +34,7 @@ export const Header = () => {
               <HeaderHubButtons />
 
               <div className="header__hub-price">
-                {totalPrice > 0 && <p>{totalPrice} руб.</p>}
+                {totalAmount > 0 && <p>{totalAmount} руб.</p>}
               </div>
 
               <button onClick={() => setOpenCart(!openCart)} className="header__hub-cartMenu">

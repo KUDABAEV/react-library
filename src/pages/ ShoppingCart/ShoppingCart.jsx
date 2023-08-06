@@ -1,13 +1,18 @@
 import React from "react";
 import {Product} from "../../components/Product";
-
+import {useSelector} from "react-redux";
+import {CartEmpty} from "../../components/CartEmpty";
 import './shopping-cart.scss';
 
 
 export const ShoppingCart = () => {
 
+    const {itemsInBasket, totalAmount} = useSelector(state => state.basket);
+    const countBook = itemsInBasket.reduce((sum, item) => sum + item.count, 0);
+    console.log(countBook)
     return (
-        <div className='section-cart'>
+        countBook > 0
+            ? <div className='section-cart'>
 
                 <header className='section-cart__header'>
                     <div className="container__basket">
@@ -24,17 +29,22 @@ export const ShoppingCart = () => {
                                 <div className="cart-header-cost">стоимость</div>
                             </header>
 
-                            <Product />
-                            <Product />
+                            {
+                                itemsInBasket.map(item => <Product
+                                    key={item.id}
+                                    {...item}
+                                />)
+                            }
+
                             <footer className="cart-footer">
-                                <div className="cart-footer__count">3 единицы</div>
-                                <div className="cart-footer__price">329 000 руб.</div>
+                                <div className="cart-footer__count">{countBook} единицы</div>
+                                <div className="cart-footer__price">{totalAmount} руб.</div>
                             </footer>
                         </section>
                     </div>
                 </div>
-
-        </div>
+            </div>
+            : <CartEmpty />
 
     )
 }
