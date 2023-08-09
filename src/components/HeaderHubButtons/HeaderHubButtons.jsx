@@ -9,7 +9,7 @@ export const HeaderHubButtons = () => {
 
     const books = useSelector(state => state.basket.itemsInBasket);
     const countBook = books.reduce((sum,item) => sum + item.count, 0);
-    //const countBook = books.length;
+
     return (
         <div className="header__hub-buttons ">
 

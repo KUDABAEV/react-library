@@ -4,10 +4,13 @@ import 'react-multi-carousel/lib/styles.css';
 import BookSkeleton from "./Skeleton";
 import {CartItem} from "../CartItem";
 import './main-slider.scss';
+import {useSelector} from "react-redux";
 
 
 
-export const MainSlider = ({books, isLoading}) => {
+export const MainSlider = ({books}) => {
+
+    const { status } = useSelector(state => state.books);
 
     return (
         <div className='container '>
@@ -65,8 +68,13 @@ export const MainSlider = ({books, isLoading}) => {
                           slidesToSlide={1}
                           // swipeable
                 >
-                    {
-                        isLoading
+                    {status === 'error' ? (
+                            <div>
+                                <h2>Произошла ошибка 😕</h2>
+                                <p>К сожалению, не удалось получить Книги. Попробуйте повторить попытку позже.</p>
+                            </div>
+                        ) :
+                        status === 'loading'
                             ? [... new Array(10)].map((_,index) => <BookSkeleton key={index} />)
                             : books.map((obj) => (
                                 <CartItem

@@ -5,11 +5,10 @@ import {Tab} from "../Tab";
 import {TabContainer} from "../TabContainer";
 import {FloatingWindow} from "../FloatingWindow";
 import {useDispatch, useSelector} from "react-redux";
-import {setCategories} from "../../redux/slices/categorySlice";
-import axios from "axios";
+import {fetchCategories} from "../../redux/slices/categorySlice";
 import './receipts.scss';
 
-export const Receipts = ({books, isLoading, changeCategoryId}) => {
+export const Receipts = ({books, changeCategoryId}) => {
 
     const {categories} = useSelector(state => state.category);
     const dispatch = useDispatch();
@@ -17,10 +16,7 @@ export const Receipts = ({books, isLoading, changeCategoryId}) => {
     const [openCategories, setOpenCategories] = React.useState(false);
 
     React.useEffect(() => {
-        axios.get('https://library-name.onrender.com/category')
-            .then(response => {
-                dispatch(setCategories(response.data))
-            })
+        dispatch(fetchCategories())
     }, [])
     return (
         <div className='receipts'>
@@ -68,7 +64,7 @@ export const Receipts = ({books, isLoading, changeCategoryId}) => {
                 </div>
             </div>
 
-            <MainSlider books={books} isLoading={isLoading}/>
+            <MainSlider books={books}/>
         </div>
     )
 }

@@ -7,7 +7,6 @@ import {Search} from "../Search";
 import {FloatingWindow} from "../FloatingWindow";
 import {HeaderHubButtons} from "../HeaderHubButtons";
 import './header.scss';
-import {totalCalculator} from "../utils";
 
 export const Header = () => {
 

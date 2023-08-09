@@ -8,9 +8,10 @@ import {Catalog} from "../../components/Catalog";
 import {About} from "../../components/About";
 import {Delivery} from "../../components/Delivery";
 import {Social} from "../../components/Social";
-import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import {setCategoryId} from "../../redux/slices/categorySlice";
+import {fetchBooks} from "../../redux/slices/booksSlice";
+import {fetchSale} from "../../redux/slices/saleSlice";
 
 
 export const Home = () => {
@@ -22,26 +23,19 @@ export const Home = () => {
     const onChangeCategory = (id) => {
         dispatch(setCategoryId(id))
     }
-
-    const [books, setBooks] = React.useState([]);
-    const [sale, setSale] = React.useState([]);
-    const [isLoading, setIsLoading] = React.useState(true);
+    const { books } = useSelector(state => state.books);
+    const { sale } = useSelector(state => state.sale)
 
     React.useEffect(() => {
-        setIsLoading(true);
         if (categoryId === 0) {
-            axios.get('https://library-name.onrender.com/books')
-                .then(response => {
-                    let books = response.data.splice(0, 10);
-                    setBooks(books);
-                    setIsLoading(false);
-                })
+            dispatch(fetchBooks({
+                categoryId
+            }))
+
         } else {
-            axios.get('https://library-name.onrender.com/books?categoryId=' + categoryId)
-                .then(response => {
-                    setBooks(response.data);
-                    setIsLoading(false);
-                })
+            dispatch(fetchBooks({
+                categoryId
+            }))
         }
 
     }, [categoryId]);
@@ -56,11 +50,10 @@ export const Home = () => {
     //
 
     React.useEffect(() => {
-        axios.get(`https://library-name.onrender.com/books?categoryId=${categorySale}`)
-            .then(response => {
-                setSale(response.data);
-                setIsLoading(false);
-            })
+        dispatch(fetchSale({
+            categorySale
+        }))
+
     }, [categorySale]);
 
     React.useEffect(() => {
@@ -75,11 +68,10 @@ export const Home = () => {
             <TopSlider/>
             <Receipts
                 books={books}
-                isLoading={isLoading}
                 categoryId={categoryId}
                 changeCategoryId={onChangeCategory}
             />
-            <Sale books={sale} isLoading={isLoading}/>
+            <Sale books={sale}/>
             <Catalog/>
             <About/>
             <Delivery/>
