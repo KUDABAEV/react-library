@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Button} from "../Button";
 import {FavoriteButton} from "../FavoriteButton";
 import {deleteItemFromCart, setItemsInBasket} from "../../redux/slices/basketSlice";
+import {Link} from "react-router-dom";
 import './cart-item.scss';
 
 export const CartItem = ({id, imageUrl, price, title, author, oldPrice}) => {
@@ -30,7 +31,9 @@ export const CartItem = ({id, imageUrl, price, title, author, oldPrice}) => {
 
     return (
         <div className='cart-item'>
-            <img className="cart-item__img" src={imageUrl} alt="Книга" />
+            <Link to={`book/${id}`}>
+                <img className="cart-item__img" src={imageUrl} alt="Книга" />
+            </Link>
             <p className="cart-item__price">{price} руб
                 <span className="cart-item__oldPrice">{oldPrice ? `${oldPrice}руб` : ''}</span>
             </p>

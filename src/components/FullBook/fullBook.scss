@@ -1,0 +1,54 @@
+.fullBook {
+  padding: 50px 0;
+  &-loading {
+    text-align: center;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+  }
+  &__left {
+    margin: 0 auto;
+    padding: 0 0 40px 0;
+  }
+  &__img {
+    width: 200px;
+    height: 300px;
+  }
+  &__right {
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    h3 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    &-bye{
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .fullBook {
+    &__content {
+      flex-direction: row;
+      padding: 0 30px;
+      gap: 0 20px;
+    }
+    &__img {
+      width: 300px;
+      height: 400px;
+    }
+    &__right {
+      max-width: 400px;
+    }
+  }
+}

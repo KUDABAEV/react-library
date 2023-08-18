@@ -1,5 +1,4 @@
 import {createSlice} from "@reduxjs/toolkit";
-
 const initialState = {
     totalAmount: 0,
     itemsInBasket: [],

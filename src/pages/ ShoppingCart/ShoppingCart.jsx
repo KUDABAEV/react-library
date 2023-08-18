@@ -9,7 +9,7 @@ export const ShoppingCart = () => {
 
     const {itemsInBasket, totalAmount} = useSelector(state => state.basket);
     const countBook = itemsInBasket.reduce((sum, item) => sum + item.count, 0);
-    console.log(countBook)
+
     return (
         countBook > 0
             ? <div className='section-cart'>

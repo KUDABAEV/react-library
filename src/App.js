@@ -4,6 +4,7 @@ import {Footer} from "./components/Footer";
 import {Route, Routes} from "react-router-dom";
 import {Home} from "./pages/Home";
 import {ShoppingCart} from "./pages/ ShoppingCart";
+import {FullBook} from "./components/FullBook";
 import './scss/index.scss';
 
 
@@ -15,11 +16,10 @@ function App() {
             <Routes>
                 <Route path='/' element={<Home />}/>
                 <Route path='/basket' element={<ShoppingCart />}/>
+                <Route path='/book/:id' element={<FullBook />}/>
             </Routes>
             <Footer />
         </div>
-
-
     );
 }
 
