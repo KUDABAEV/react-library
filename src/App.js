@@ -4,7 +4,7 @@ import {Footer} from "./components/Footer";
 import {Route, Routes} from "react-router-dom";
 import {Home} from "./pages/Home";
 import {ShoppingCart} from "./pages/ ShoppingCart";
-import {FullBook} from "./components/FullBook";
+import {FullBook} from "./pages/FullBook";
 import './scss/index.scss';
 
 

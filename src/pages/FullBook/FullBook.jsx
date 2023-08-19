@@ -1,7 +1,7 @@
 import React from 'react'
 import {useParams} from "react-router-dom";
 import axios from "axios";
-import {Button} from "../Button";
+import {Button} from "../../components/Button";
 import {useDispatch, useSelector} from "react-redux";
 import {deleteItemFromCart, setItemsInBasket} from "../../redux/slices/basketSlice";
 import {booksItems} from "../../redux/slices/booksSlice";
