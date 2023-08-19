@@ -47,6 +47,7 @@ const saleSlice = createSlice({
     }
 })
 
+export const selectSale = (state) => state.sale;
 export const {setSale} = saleSlice.actions;
 
 export default saleSlice.reducer;

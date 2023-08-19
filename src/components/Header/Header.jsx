@@ -6,12 +6,13 @@ import {Logo} from "../Logo";
 import {Search} from "../Search";
 import {FloatingWindow} from "../FloatingWindow";
 import {HeaderHubButtons} from "../HeaderHubButtons";
+import {selectTotalAmount} from "../../redux/slices/basketSlice";
 import './header.scss';
 
 export const Header = () => {
 
   const [openCart, setOpenCart] = React.useState(false);
-  const { totalAmount } = useSelector(state => state.basket);
+  const totalAmount  = useSelector(selectTotalAmount);
 
   return (
       <header className='header'>

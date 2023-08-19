@@ -9,22 +9,23 @@ import {About} from "../../components/About";
 import {Delivery} from "../../components/Delivery";
 import {Social} from "../../components/Social";
 import {useDispatch, useSelector} from "react-redux";
-import {setCategoryId} from "../../redux/slices/categorySlice";
-import {fetchBooks} from "../../redux/slices/booksSlice";
-import {fetchSale} from "../../redux/slices/saleSlice";
+import {selectCategoryId, selectCategorySale, setCategoryId} from "../../redux/slices/categorySlice";
+import {booksItems, fetchBooks} from "../../redux/slices/booksSlice";
+import {fetchSale, selectSale} from "../../redux/slices/saleSlice";
 
 
 export const Home = () => {
 
-    const {categoryId, categorySale} = useSelector(state => state.category)
+    const categoryId = useSelector(selectCategoryId);
+    const categorySale = useSelector(selectCategorySale);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const onChangeCategory = (id) => {
         dispatch(setCategoryId(id))
     }
-    const { books } = useSelector(state => state.books);
-    const { sale } = useSelector(state => state.sale)
+    const books = useSelector(booksItems);
+    const { sale } = useSelector(selectSale)
 
     React.useEffect(() => {
         if (categoryId === 0) {

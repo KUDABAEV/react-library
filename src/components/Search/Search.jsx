@@ -3,14 +3,14 @@ import axios from "axios";
 import {Card} from "../Card";
 import {FloatingWindow} from "../FloatingWindow";
 import {useDispatch, useSelector} from "react-redux";
-import {setNewSearchText, setResponseSearchBooks} from "../../redux/slices/searchSlice";
+import {selectSearch, setNewSearchText, setResponseSearchBooks} from "../../redux/slices/searchSlice";
 import debounce from 'lodash.debounce';
 import './search.scss';
 
 export const Search = () => {
 
     const [value, setValue] = React.useState('');
-    const {newSearchText, responseSearchBooks} = useSelector(state => state.search);
+    const {newSearchText, responseSearchBooks} = useSelector(selectSearch);
     const dispatch = useDispatch();
     const searchRef = React.useRef()
 

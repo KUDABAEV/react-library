@@ -1,16 +1,17 @@
 import React from "react";
-import Carousel from 'react-multi-carousel';
+import {useSelector} from "react-redux";
 import 'react-multi-carousel/lib/styles.css';
+import Carousel from 'react-multi-carousel';
+import {selectStatus} from "../../redux/slices/booksSlice";
 import BookSkeleton from "./Skeleton";
 import {CartItem} from "../CartItem";
 import './main-slider.scss';
-import {useSelector} from "react-redux";
 
 
 
 export const MainSlider = ({books}) => {
 
-    const { status } = useSelector(state => state.books);
+    const status = useSelector(selectStatus);
 
     return (
         <div className='container '>

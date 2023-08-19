@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 import axios from "axios";
 import {Button} from "../../components/Button";
 import {useDispatch, useSelector} from "react-redux";
-import {deleteItemFromCart, setItemsInBasket} from "../../redux/slices/basketSlice";
+import {deleteItemFromCart, selectItemsInBasket, setItemsInBasket} from "../../redux/slices/basketSlice";
 import {booksItems} from "../../redux/slices/booksSlice";
 import './fullBook.scss';
 
@@ -13,8 +13,8 @@ export const FullBook = () => {
     const {id} = useParams();
 
     const dispatch = useDispatch();
-    const books = useSelector(state => state.basket.itemsInBasket);
-    const booksAll = useSelector(booksItems).books;
+    const books = useSelector(selectItemsInBasket);
+    const booksAll = useSelector(booksItems);
     const isBookInCart = books.some(book => book.id === +id);
     const currentBook  =  booksAll.find(book=> book.id === +id )
 

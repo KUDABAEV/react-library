@@ -5,12 +5,12 @@ import {Tab} from "../Tab";
 import {TabContainer} from "../TabContainer";
 import {FloatingWindow} from "../FloatingWindow";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchCategories} from "../../redux/slices/categorySlice";
+import {fetchCategories, selectCategories} from "../../redux/slices/categorySlice";
 import './receipts.scss';
 
 export const Receipts = ({books, changeCategoryId}) => {
 
-    const {categories} = useSelector(state => state.category);
+    const categories = useSelector(selectCategories);
     const dispatch = useDispatch();
 
     const [openCategories, setOpenCategories] = React.useState(false);

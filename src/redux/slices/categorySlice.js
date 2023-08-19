@@ -36,8 +36,9 @@ const categorySlice = createSlice({
 
     }
 });
-
-
+export const selectCategories = (state) => state.category.categories;
+export const selectCategoryId = (state) => state.category.categoryId;
+export const selectCategorySale = (state) => state.category.categorySale;
 export const { setCategoryId } = categorySlice.actions;
 
 export default categorySlice.reducer;

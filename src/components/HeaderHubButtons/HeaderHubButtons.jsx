@@ -2,12 +2,12 @@ import React from 'react';
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {ItemInBasket} from "../ItemsInBasket";
+import {selectItemsInBasket} from "../../redux/slices/basketSlice";
 import './header-hub-buttons.scss';
-
 
 export const HeaderHubButtons = () => {
 
-    const books = useSelector(state => state.basket.itemsInBasket);
+    const books = useSelector(selectItemsInBasket);
     const countBook = books.reduce((sum,item) => sum + item.count, 0);
 
     return (

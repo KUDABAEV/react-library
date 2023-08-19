@@ -8,20 +8,27 @@ import './catalog.scss';
 
 
 export const Catalog = () => {
+
+    const arrCatalogItem = [
+        'Книги',
+        'Электронные книги',
+        'Аудиокниги',
+        'Книжные аксессуарые',
+        'Игрушки, творчество',
+        'Настольные игрые',
+        'Подарки',
+        'Блокноты',
+        'Акции'
+    ]
+
     return (
         <div className='catalog'>
             <div className="container catalog__container">
                 <Title title='Каталог' />
                 <div className='catalog__items'>
-                    <CatalogItem title='Книги' />
-                    <CatalogItem title='Электронные книги' />
-                    <CatalogItem title='Аудиокниги' />
-                    <CatalogItem title='Книжные аксессуарые' />
-                    <CatalogItem title='Игрушки, творчество' />
-                    <CatalogItem title='Настольные игрые' />
-                    <CatalogItem title='Подарки' />
-                    <CatalogItem title='Блокноты' />
-                    <CatalogItem title='Акции' />
+                    {
+                        arrCatalogItem.map(item => <CatalogItem title={item} />)
+                    }
                 </div>
             </div>
         </div>

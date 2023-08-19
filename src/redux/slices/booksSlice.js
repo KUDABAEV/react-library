@@ -51,7 +51,8 @@ const booksSlice = createSlice({
     }
 })
 
-export const booksItems = (state) => state.books;
+export const booksItems = (state) => state.books.books;
+export const selectStatus = (state) => state.books.status;
 
 export const {setBooks} = booksSlice.actions;
 

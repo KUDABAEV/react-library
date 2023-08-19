@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+
 const initialState = {
     totalAmount: 0,
     itemsInBasket: [],
@@ -70,5 +71,8 @@ export const {
     plusBook, minusBook,
     deleteBasketItem
 } = basketSlice.actions;
+
+export const selectItemsInBasket = (state) => state.basket.itemsInBasket;
+export const selectTotalAmount = (state) => state.basket.totalAmount;
 
 export default basketSlice.reducer;

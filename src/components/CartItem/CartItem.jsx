@@ -2,7 +2,7 @@ import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Button} from "../Button";
 import {FavoriteButton} from "../FavoriteButton";
-import {deleteItemFromCart, setItemsInBasket} from "../../redux/slices/basketSlice";
+import {deleteItemFromCart, selectItemsInBasket, setItemsInBasket} from "../../redux/slices/basketSlice";
 import {Link} from "react-router-dom";
 import './cart-item.scss';
 
@@ -10,7 +10,7 @@ export const CartItem = ({id, imageUrl, price, title, author, oldPrice}) => {
 
     const dispatch = useDispatch();
     const bookId = id;
-    const books = useSelector(state => state.basket.itemsInBasket);
+    const books = useSelector(selectItemsInBasket);
     const isBookInCart = books.some(book => book.id === bookId);
 
     const addProductClick = (event) => {

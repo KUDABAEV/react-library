@@ -1,13 +1,14 @@
 import React from "react";
-import {Product} from "../../components/Product";
 import {useSelector} from "react-redux";
+import {Product} from "../../components/Product";
 import {CartEmpty} from "../../components/CartEmpty";
+import {selectItemsInBasket, selectTotalAmount} from "../../redux/slices/basketSlice";
 import './shopping-cart.scss';
-
 
 export const ShoppingCart = () => {
 
-    const {itemsInBasket, totalAmount} = useSelector(state => state.basket);
+    const itemsInBasket = useSelector(selectItemsInBasket);
+    const totalAmount = useSelector(selectTotalAmount);
     const countBook = itemsInBasket.reduce((sum, item) => sum + item.count, 0);
 
     return (

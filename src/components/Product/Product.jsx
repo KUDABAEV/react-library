@@ -1,12 +1,11 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {deleteBasketItem, minusBook, plusBook} from "../../redux/slices/basketSlice";
 import './product.scss';
 
 
 export const Product = ({id, imageUrl, price, title, author, count}) => {
 
-    const {totalAmount} = useSelector(state => state.basket)
     const dispatch = useDispatch();
 
     const onClickDeleteItemCart = () => {
