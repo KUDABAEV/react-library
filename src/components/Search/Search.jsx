@@ -35,7 +35,7 @@ export const Search = () => {
 
     React.useEffect(() => {
 
-        const searchImportance = newSearchText ? `&q=${newSearchText}` : '';
+        const searchImportance = newSearchText ? `title_like=${newSearchText}` : '';
 
         axios.get(`https://library-name.onrender.com/books?${searchImportance}`)
             .then(response => dispatch(setResponseSearchBooks(response.data)))

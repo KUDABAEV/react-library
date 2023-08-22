@@ -1,0 +1,21 @@
+.favorites {
+  padding: 60px 0;
+  &__title {
+    padding: 40px 0;
+    text-align: center;
+  }
+  &__content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px 30px;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 767px) {
+  .favorites{
+    &__content {
+      justify-content: unset;
+    }
+  }
+}

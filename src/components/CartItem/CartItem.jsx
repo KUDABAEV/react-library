@@ -1,17 +1,21 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
+import {Link} from "react-router-dom";
 import {Button} from "../Button";
 import {FavoriteButton} from "../FavoriteButton";
 import {deleteItemFromCart, selectItemsInBasket, setItemsInBasket} from "../../redux/slices/basketSlice";
-import {Link} from "react-router-dom";
+import {deleteItemsInFavorite, selectItemsInFavorites, setItemsInFavorites} from "../../redux/slices/favoriteSlice";
 import './cart-item.scss';
+
 
 export const CartItem = ({id, imageUrl, price, title, author, oldPrice}) => {
 
     const dispatch = useDispatch();
     const bookId = id;
     const books = useSelector(selectItemsInBasket);
+    const favoritesBooks = useSelector(selectItemsInFavorites);
     const isBookInCart = books.some(book => book.id === bookId);
+    const isFavoriteInCart = favoritesBooks.some(favorite => favorite.id === bookId)
 
     const addProductClick = (event) => {
         event.stopPropagation();
@@ -26,6 +30,22 @@ export const CartItem = ({id, imageUrl, price, title, author, oldPrice}) => {
             dispatch(deleteItemFromCart(bookId));
         }else {
             dispatch(setItemsInBasket(book));
+        }
+    }
+
+    const addFavoriteClick = (event) => {
+        event.stopPropagation();
+        const favorite = {
+            id,
+            imageUrl,
+            price,
+            title,
+            author,
+        }
+        if (isFavoriteInCart) {
+            dispatch(deleteItemsInFavorite(bookId))
+        } else {
+            dispatch(setItemsInFavorites(favorite))
         }
     }
 
@@ -46,7 +66,7 @@ export const CartItem = ({id, imageUrl, price, title, author, oldPrice}) => {
                 >
                     { isBookInCart ? 'В корзине' : 'В корзину' }
                 </Button>
-                <FavoriteButton />
+                <FavoriteButton id={id} FavoriteClick={addFavoriteClick}/>
             </div>
         </div>
     )

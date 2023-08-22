@@ -4,6 +4,7 @@ import search from "./slices/searchSlice";
 import basket from "./slices/basketSlice";
 import books from "./slices/booksSlice";
 import sale from "./slices/saleSlice";
+import favorites from "./slices/favoriteSlice";
 
 export const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
         category,
         search,
         basket,
+        favorites,
     },
 })
 

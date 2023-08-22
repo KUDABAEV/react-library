@@ -22,8 +22,8 @@ export const Social = () => {
                     <Title title='Следите за нами в социальных сетях'/>
                     <ul className='social__content-items'>
                         {
-                            arrSocial.map(item => (
-                                <li className='social__content-item'>
+                            arrSocial.map((item,index) => (
+                                <li key={index} className='social__content-item'>
                                     <a className='social__content-link' href="#">
                                         <img className="social__content-img" src={item.src} alt={item.alt}/>
                                     </a>

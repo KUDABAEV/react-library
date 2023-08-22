@@ -27,7 +27,7 @@ export const Catalog = () => {
                 <Title title='Каталог' />
                 <div className='catalog__items'>
                     {
-                        arrCatalogItem.map(item => <CatalogItem title={item} />)
+                        arrCatalogItem.map((item,index) => <CatalogItem key={index}  title={item} />)
                     }
                 </div>
             </div>

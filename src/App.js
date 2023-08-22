@@ -5,7 +5,9 @@ import {Route, Routes} from "react-router-dom";
 import {Home} from "./pages/Home";
 import {ShoppingCart} from "./pages/ ShoppingCart";
 import {FullBook} from "./pages/FullBook";
+import {Favorites} from "./pages/Favorites";
 import './scss/index.scss';
+
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
             <Header />
             <Routes>
                 <Route path='/' element={<Home />}/>
+                <Route path='/favorites' element={<Favorites />}/>
                 <Route path='/basket' element={<ShoppingCart />}/>
                 <Route path='/book/:id' element={<FullBook />}/>
             </Routes>

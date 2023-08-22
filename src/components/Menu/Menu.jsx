@@ -16,8 +16,8 @@ export const Menu = () => {
         <nav className="nav">
             <ul className="menu">
                 {
-                    arrMenu.map(menuItem => (
-                        <li className="menu__item">
+                    arrMenu.map((menuItem,index) => (
+                        <li key={index} className="menu__item">
                             <a href="" className="menu__item-link">{menuItem}</a>
                         </li>
                     ))
