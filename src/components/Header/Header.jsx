@@ -1,17 +1,14 @@
 import React from 'react'
 import {useSelector} from "react-redux";
 import {Menu} from "../Menu";
-import {Card} from "../Card";
 import {Logo} from "../Logo";
 import {Search} from "../Search";
-import {FloatingWindow} from "../FloatingWindow";
 import {HeaderHubButtons} from "../HeaderHubButtons";
 import {selectTotalAmount} from "../../redux/slices/basketSlice";
 import './header.scss';
 
 export const Header = () => {
 
-  const [openCart, setOpenCart] = React.useState(false);
   const totalAmount  = useSelector(selectTotalAmount);
 
   return (
@@ -36,16 +33,6 @@ export const Header = () => {
               <div className="header__hub-price">
                 {totalAmount > 0 && <p>{totalAmount} руб.</p>}
               </div>
-
-              <button onClick={() => setOpenCart(!openCart)} className="header__hub-cartMenu">
-                <img src="/img/cartMenu.png" alt="CartMenu" />
-              </button>
-              {
-                  openCart && <FloatingWindow>
-                    <Card img='/img/cart1.jpg' title='порядок в Хаосе' price={300}/>
-                    <Card img='/img/cart1.jpg' title='порядок в Хаосе' price={300}/>
-                  </FloatingWindow>
-              }
             </div>
 
             <div className="header__burger">
