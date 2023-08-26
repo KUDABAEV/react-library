@@ -5,11 +5,11 @@ import {CartEmpty} from "../../components/CartEmpty";
 import {selectItemsInBasket, selectTotalAmount} from "../../redux/slices/basketSlice";
 import './shopping-cart.scss';
 
-export const ShoppingCart = () => {
+export const ShoppingCart:React.FC = () => {
 
     const itemsInBasket = useSelector(selectItemsInBasket);
     const totalAmount = useSelector(selectTotalAmount);
-    const countBook = itemsInBasket.reduce((sum, item) => sum + item.count, 0);
+    const countBook = itemsInBasket.reduce((sum: number, item: any) => sum + item.count, 0);
 
     return (
         countBook > 0
@@ -31,7 +31,7 @@ export const ShoppingCart = () => {
                             </header>
 
                             {
-                                itemsInBasket.map(item => <Product
+                                itemsInBasket.map((item: any) => <Product
                                     key={item.id}
                                     {...item}
                                 />)

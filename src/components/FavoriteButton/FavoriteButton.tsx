@@ -3,13 +3,17 @@ import {useDispatch, useSelector} from "react-redux";
 import {deleteItemsInFavorite, selectItemsInFavorites} from "../../redux/slices/favoriteSlice";
 import './favorite-button.scss';
 
-export const FavoriteButton = ({id, FavoriteClick}) => {
+type FavoriteButtonProps = {
+    id: number;
+    FavoriteClick: any;
+}
+
+export const FavoriteButton:React.FC<FavoriteButtonProps> = ({id, FavoriteClick}) => {
     const arrItemsFavorite = useSelector(selectItemsInFavorites);
-    const [isFavorite, setIsFavorite] = React.useState(arrItemsFavorite.find(item => item.id === id))
+    const [isFavorite, setIsFavorite] = React.useState(arrItemsFavorite.find((item:any) => item.id === id))
     const dispatch = useDispatch()
 
-
-    const onClickFavorite = (e) => {
+    const onClickFavorite = (e:any) => {
         if (!isFavorite) {
             FavoriteClick(e)
             setIsFavorite(true)

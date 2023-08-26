@@ -12,23 +12,23 @@ export const Search = () => {
     const [value, setValue] = React.useState('');
     const {newSearchText, responseSearchBooks} = useSelector(selectSearch);
     const dispatch = useDispatch();
-    const searchRef = React.useRef()
+    const searchRef = React.useRef<HTMLDivElement>(null)
 
-    const inputRef = React.useRef();
+    const inputRef = React.useRef<HTMLInputElement>(null);
 
     const onClickClose = () => {
         setValue('');
         dispatch(setNewSearchText(''));
-        inputRef.current.focus();
+        inputRef.current?.focus()
     }
     const updateSearchValue = React.useCallback(
-        debounce((str) => {
+        debounce((str:string) => {
             dispatch(setNewSearchText(str));
         }, 1000),
         [],
     )
 
-    const onChangeInput = (event) => {
+    const onChangeInput = (event:any) => {
         setValue(event.target.value)
         updateSearchValue(event.target.value);
     }
@@ -41,7 +41,7 @@ export const Search = () => {
             .then(response => dispatch(setResponseSearchBooks(response.data)))
     }, [newSearchText]);
 
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: any) => {
         if (!event.composedPath().includes(searchRef.current)) {
             setValue('');
             dispatch(setNewSearchText(false));
@@ -93,7 +93,7 @@ export const Search = () => {
                 newSearchText && (
                     <FloatingWindow>
                         {
-                            responseSearchBooks.map(item => <Card key={item.id} img={item.imageUrl} title={item.title}
+                            responseSearchBooks.map((item:any) => <Card key={item.id} img={item.imageUrl} title={item.title}
                                                                   price={item.price}/>)
                         }
                     </FloatingWindow>

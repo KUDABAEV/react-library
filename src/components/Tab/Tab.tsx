@@ -3,7 +3,13 @@ import {useSelector} from "react-redux";
 import {selectCategoryId} from "../../redux/slices/categorySlice";
 import './tab.scss';
 
-export const Tab = ({title, handler, id}) => {
+type TabProps = {
+    title: string,
+    handler: any,
+    id: number;
+}
+
+export const Tab:React.FC<TabProps> = ({title, handler, id}) => {
     const categoryId = useSelector(selectCategoryId);
 
     return (

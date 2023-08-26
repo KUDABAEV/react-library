@@ -1,9 +1,13 @@
 import React from "react";
 import './card.scss';
 
+type CardProps = {
+    img: string;
+    title: string;
+    price: number
+}
 
-
-export const Card = ({img, title, price}) => {
+export const Card:React.FC<CardProps> = ({img, title, price}) => {
 
     return (
         <div className='card'>

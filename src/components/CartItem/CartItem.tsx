@@ -7,17 +7,25 @@ import {deleteItemFromCart, selectItemsInBasket, setItemsInBasket} from "../../r
 import {deleteItemsInFavorite, selectItemsInFavorites, setItemsInFavorites} from "../../redux/slices/favoriteSlice";
 import './cart-item.scss';
 
+type CartItemProps = {
+    id: number,
+    imageUrl: string,
+    price: number,
+    title: string,
+    author: string,
+    oldPrice: number
+}
 
-export const CartItem = ({id, imageUrl, price, title, author, oldPrice}) => {
+export const CartItem:React.FC<CartItemProps> = ({id, imageUrl, price, title, author, oldPrice}) => {
 
     const dispatch = useDispatch();
     const bookId = id;
     const books = useSelector(selectItemsInBasket);
     const favoritesBooks = useSelector(selectItemsInFavorites);
-    const isBookInCart = books.some(book => book.id === bookId);
-    const isFavoriteInCart = favoritesBooks.some(favorite => favorite.id === bookId)
+    const isBookInCart = books.some((book:any) => book.id === bookId);
+    const isFavoriteInCart = favoritesBooks.some((favorite:any) => favorite.id === bookId)
 
-    const addProductClick = (event) => {
+    const addProductClick = (event:any) => {
         event.stopPropagation();
         const book = {
             id,
@@ -33,7 +41,7 @@ export const CartItem = ({id, imageUrl, price, title, author, oldPrice}) => {
         }
     }
 
-    const addFavoriteClick = (event) => {
+    const addFavoriteClick = (event:any) => {
         event.stopPropagation();
         const favorite = {
             id,

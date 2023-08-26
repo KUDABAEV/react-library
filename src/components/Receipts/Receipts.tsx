@@ -8,7 +8,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchCategories, selectCategories} from "../../redux/slices/categorySlice";
 import './receipts.scss';
 
-export const Receipts = ({books, changeCategoryId}) => {
+type ReceiptsProps = {
+    books: any;
+    changeCategoryId: any;
+}
+
+export const Receipts:React.FC<ReceiptsProps> = ({books, changeCategoryId}) => {
 
     const categories = useSelector(selectCategories);
     const dispatch = useDispatch();
@@ -16,7 +21,10 @@ export const Receipts = ({books, changeCategoryId}) => {
     const [openCategories, setOpenCategories] = React.useState(false);
 
     React.useEffect(() => {
-        dispatch(fetchCategories())
+        dispatch(
+            // @ts-ignore
+            fetchCategories()
+        )
     }, [])
     return (
         <div className='receipts'>
@@ -28,7 +36,7 @@ export const Receipts = ({books, changeCategoryId}) => {
 
                         <TabContainer>
                             {
-                                categories.map(item =>
+                                categories.map((item:any) =>
                                     <Tab
                                         key={item.id}
                                         id={item.id}
@@ -37,6 +45,7 @@ export const Receipts = ({books, changeCategoryId}) => {
                                     />)
                             }
                             <Tab
+                                id={categories.map((item: any,index: number) => index)}
                                 key='Категории'
                                 title='Категории'
                                 handler={() => setOpenCategories(!openCategories)}
@@ -47,8 +56,9 @@ export const Receipts = ({books, changeCategoryId}) => {
                             openCategories && <FloatingWindow>
                                 <TabContainer>
                                     {
-                                        categories.map(item =>
+                                        categories.map((item: any) =>
                                             <Tab
+                                                id={categories.map((item: any,index: number) => index)}
                                                 key={item.id}
                                                 title={item.title}
                                                 handler={() => {

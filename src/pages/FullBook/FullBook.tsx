@@ -9,16 +9,22 @@ import './fullBook.scss';
 
 export const FullBook = () => {
 
-    const [book,setBook] = React.useState();
+    const [book,setBook] = React.useState<{
+        imageUrl: string;
+        title: string;
+        author: string;
+        description: string;
+        price: number;
+    }>();
     const {id} = useParams();
 
     const dispatch = useDispatch();
     const books = useSelector(selectItemsInBasket);
     const booksAll = useSelector(booksItems);
-    const isBookInCart = books.some(book => book.id === +id);
-    const currentBook  =  booksAll.find(book=> book.id === +id )
+    const isBookInCart = books.some((book: any) => book.id === Number(id));
+    const currentBook  =  booksAll.find((book: any) => book.id === Number(id))
 
-    const addProductClick = (event) => {
+    const addProductClick = (event: any) => {
         event.stopPropagation();
 
         if (isBookInCart){

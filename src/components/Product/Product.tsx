@@ -3,8 +3,15 @@ import {useDispatch} from "react-redux";
 import {deleteBasketItem, minusBook, plusBook} from "../../redux/slices/basketSlice";
 import './product.scss';
 
+type ProductProps = {
+    id: number,
+    imageUrl: string,
+    price: number,
+    title: string,
+    count: number
+}
 
-export const Product = ({id, imageUrl, price, title, author, count}) => {
+export const Product:React.FC<ProductProps> = ({id, imageUrl, price, title, count}) => {
 
     const dispatch = useDispatch();
 

@@ -7,7 +7,7 @@ import {HeaderHubButtons} from "../HeaderHubButtons";
 import {selectTotalAmount} from "../../redux/slices/basketSlice";
 import './header.scss';
 
-export const Header = () => {
+export const Header:React.FC = () => {
 
   const totalAmount  = useSelector(selectTotalAmount);
 

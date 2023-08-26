@@ -5,7 +5,7 @@ import {FavoritesEmpty} from "../../components/FavoritesEmpty";
 import {CartItem} from "../../components/CartItem";
 import './Favorites.scss';
 
-export const Favorites = () => {
+export const Favorites:React.FC = () => {
 
     const favoritesBooks = useSelector(selectItemsInFavorites);
 
@@ -16,7 +16,7 @@ export const Favorites = () => {
                     <h2 className='favorites__title'>Избранное</h2>
                     <div className="favorites__content">
                         {
-                            favoritesBooks.map(item => <CartItem key={item.id} {...item} />)
+                            favoritesBooks.map((item: any) => <CartItem key={item.id} {...item} />)
                         }
                     </div>
                 </div>

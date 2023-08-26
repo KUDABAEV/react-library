@@ -2,7 +2,13 @@ import React from "react";
 import classNames from "classnames";
 import './button.scss';
 
-export const Button = ({onClick, type, children}) => {
+type ButtonProps = {
+    onClick: any;
+    type: string;
+    children:any;
+}
+
+export const Button:React.FC<ButtonProps> = ({onClick, type, children}) => {
 
     const btnClass = classNames({
         'btn': true,

@@ -69,7 +69,6 @@ export const Home = () => {
             <TopSlider/>
             <Receipts
                 books={books}
-                categoryId={categoryId}
                 changeCategoryId={onChangeCategory}
             />
             <Sale books={sale}/>

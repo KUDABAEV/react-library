@@ -3,12 +3,15 @@ import {Title} from "../Title";
 import {MainSlider} from "../MainSlider";
 import './sale.scss';
 
+type SaleProps = {
+    books:any;
+}
 
-export const Sale = ({books, isLoading}) => {
+export const Sale:React.FC<SaleProps> = ({books}) => {
     return (
         <div className='sale'>
             <Title title='Распродажа'/>
-            <MainSlider books={books} isLoading={isLoading}/>
+            <MainSlider books={books}/>
         </div>
     )
 }

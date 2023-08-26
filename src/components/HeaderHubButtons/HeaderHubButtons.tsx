@@ -7,11 +7,11 @@ import {ItemInFavorite} from "../ItemInFavorite";
 import {selectItemsInFavorites} from "../../redux/slices/favoriteSlice";
 import './header-hub-buttons.scss';
 
-export const HeaderHubButtons = () => {
+export const HeaderHubButtons:React.FC = () => {
 
     const books = useSelector(selectItemsInBasket);
     const favorites = useSelector(selectItemsInFavorites)
-    const countBook = books.reduce((sum,item) => sum + item.count, 0);
+    const countBook = books.reduce((sum: number,item: any) => sum + item.count, 0);
 
     return (
         <div className="header__hub-buttons ">

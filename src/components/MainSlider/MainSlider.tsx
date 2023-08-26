@@ -7,9 +7,11 @@ import BookSkeleton from "./Skeleton";
 import {CartItem} from "../CartItem";
 import './main-slider.scss';
 
+type MainSliderProps = {
+    books: any;
+}
 
-
-export const MainSlider = ({books}) => {
+export const MainSlider:React.FC<MainSliderProps> = ({books}) => {
 
     const status = useSelector(selectStatus);
 
@@ -76,8 +78,8 @@ export const MainSlider = ({books}) => {
                             </div>
                         ) :
                         status === 'loading'
-                            ? [... new Array(10)].map((_,index) => <BookSkeleton key={index} />)
-                            : books.map((obj) => (
+                            ? [... new Array(10)].map((_,index) => <BookSkeleton key={index} props={index} />)
+                            : books.map((obj:any) => (
                                 <CartItem
                                     key={obj.id}
                                     {...obj}

@@ -1,7 +1,12 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
 
-const BookSkeleton = (props) => (
+type BookSkeletonProps = {
+    props:any;
+}
+
+
+const BookSkeleton:React.FC<BookSkeletonProps> = (props) => (
     <ContentLoader
         speed={2}
         width={190}

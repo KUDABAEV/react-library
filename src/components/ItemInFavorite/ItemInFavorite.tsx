@@ -1,7 +1,11 @@
 import React from 'react'
 import './ItemInFavorite.scss';
 
-export const ItemInFavorite = ({favoriteItem = 0}) => {
+type ItemInFavoriteProps = {
+    favoriteItem: number;
+}
+
+export const ItemInFavorite:React.FC<ItemInFavoriteProps> = ({favoriteItem = 0}) => {
     return (
 
         favoriteItem > 0
