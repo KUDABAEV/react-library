@@ -2,9 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import './logo.scss';
 
-
-
-export const Logo = () => {
+export const Logo:React.FC = () => {
 
     return (
         <Link to='/' className="logo">

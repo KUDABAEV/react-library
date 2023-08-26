@@ -4,10 +4,7 @@ import {CatalogItem} from "../CatalogItem";
 import './catalog.scss';
 
 
-
-
-
-export const Catalog = () => {
+export const Catalog:React.FC = () => {
 
     const arrCatalogItem = [
         'Книги',

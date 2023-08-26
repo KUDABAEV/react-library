@@ -1,7 +1,11 @@
 import React from "react";
 import './item-in-basket.scss';
 
-export const ItemInBasket = ({countItems = 0}) => {
+type ItemInBasketProps = {
+    countItems: number
+}
+
+export const ItemInBasket:React.FC<ItemInBasketProps> = ({countItems = 0}) => {
     return (
 
         countItems > 0

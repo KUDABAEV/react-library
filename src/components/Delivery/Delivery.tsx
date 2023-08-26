@@ -1,10 +1,8 @@
 import React from "react";
-
-import './delivery.scss';
 import {Title} from "../Title";
+import './delivery.scss';
 
-
-export const Delivery = () => {
+export const Delivery:React.FC = () => {
 
     return (
         <div className='delivery'>

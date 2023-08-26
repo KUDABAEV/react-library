@@ -2,7 +2,7 @@ import React from "react";
 import './menu.scss';
 
 
-export const Menu = () => {
+export const Menu:React.FC = () => {
 
     const arrMenu = [
         'Акции',

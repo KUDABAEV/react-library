@@ -1,8 +1,11 @@
 import React from "react";
-
 import './catalog-item.scss';
 
-export const CatalogItem = ({title}) => {
+type CatalogItemProps = {
+    title: string
+};
+
+export const CatalogItem:React.FC<CatalogItemProps> = ({title}) => {
 
     return (
         <div className='catalog__item'>

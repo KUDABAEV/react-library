@@ -1,11 +1,10 @@
 import React from "react";
-import './about.scss';
 import {Title} from "../Title";
 import {AboutItem} from "../AboutItem";
+import './about.scss';
 
 
-
-export const About = () => {
+export const About:React.FC = () => {
     return (
         <div className='about'>
             <div className='container'>

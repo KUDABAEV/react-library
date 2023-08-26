@@ -2,7 +2,15 @@ import React from "react";
 import './footer-menu.scss';
 
 
-export const FooterMenu = ({title, linkOne, linkTwo, linkThree, linkFour = null}) => {
+type FooterMenuProps = {
+    title: string,
+    linkOne: string,
+    linkTwo: string,
+    linkThree: string,
+    linkFour: string
+};
+
+export const FooterMenu:React.FC<FooterMenuProps> = ({title, linkOne, linkTwo, linkThree, linkFour}) => {
 
     return (
         <div className='footer__menu'>

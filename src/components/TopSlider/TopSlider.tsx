@@ -3,7 +3,7 @@ import {SliderHead} from "../SliderHead";
 import './top-slider.scss';
 
 
-export const TopSlider = () => {
+export const TopSlider:React.FC = () => {
 
     return (
         <section className="top__slider">

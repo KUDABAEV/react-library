@@ -3,7 +3,7 @@ import {Title} from "../Title";
 import './social.scss';
 
 
-export const Social = () => {
+export const Social:React.FC = () => {
 
     const arrSocial = [
         {src: '/img/facebook.svg', alt: 'facebook'},

@@ -1,7 +1,11 @@
 import React from 'react';
 import './tab-container.scss';
 
-export function TabContainer({children}) {
+type childrenProps = {
+    children: any
+}
+
+export const TabContainer:React.FC<childrenProps> = ({children}) => {
     return (
         <div className='tab-container'>
             {children}

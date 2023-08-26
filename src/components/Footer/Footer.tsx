@@ -5,7 +5,7 @@ import {FooterMenu} from "../FooterMenu";
 import './footer.scss';
 
 
-export const Footer = () => {
+export const Footer:React.FC = () => {
 
     return (
         <div className='footer'>
@@ -33,11 +33,13 @@ export const Footer = () => {
                                     linkOne='Доставка'
                                     linkTwo='Оплата'
                                     linkThree='О магазине'
+                                    linkFour=''
                         />
                         <FooterMenu title='Помощь'
                                     linkOne='Контакты'
                                     linkTwo='Возврат товара'
                                     linkThree='Помощь покупателю'
+                                    linkFour=''
                         />
                     </div>
 

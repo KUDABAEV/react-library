@@ -1,7 +1,7 @@
 import React from 'react'
 import './favoritesEmpty.scss';
 
-export const FavoritesEmpty = () => {
+export const FavoritesEmpty:React.FC = () => {
     return (
         <div className="favorites-empty">
             <div className="container">
