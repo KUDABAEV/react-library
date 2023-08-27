@@ -7,7 +7,13 @@ import {selectSearch, setNewSearchText, setResponseSearchBooks} from "../../redu
 import debounce from 'lodash.debounce';
 import './search.scss';
 
-export const Search = () => {
+type PopupClick = MouseEvent & {
+    composedPath: () => [] & {
+        includes: (item: HTMLDivElement) => [];
+    };
+}
+
+export const Search:React.FC = () => {
 
     const [value, setValue] = React.useState('');
     const {newSearchText, responseSearchBooks} = useSelector(selectSearch);
@@ -16,7 +22,7 @@ export const Search = () => {
 
     const inputRef = React.useRef<HTMLInputElement>(null);
 
-    const onClickClose = () => {
+    const onClickClose = (event: React.MouseEvent<SVGSVGElement>) => {
         setValue('');
         dispatch(setNewSearchText(''));
         inputRef.current?.focus()
@@ -28,7 +34,7 @@ export const Search = () => {
         [],
     )
 
-    const onChangeInput = (event:any) => {
+    const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value)
         updateSearchValue(event.target.value);
     }
@@ -41,11 +47,11 @@ export const Search = () => {
             .then(response => dispatch(setResponseSearchBooks(response.data)))
     }, [newSearchText]);
 
-    const handleClickOutside = (event: any) => {
-        if (!event.composedPath().includes(searchRef.current)) {
+    const handleClickOutside = (event: MouseEvent) => {
+        const _event = event as PopupClick
+        if (searchRef.current && !event.composedPath().includes(searchRef.current)) {
             setValue('');
             dispatch(setNewSearchText(false));
-            console.log('outside')
         }
         document.body.removeEventListener('click', handleClickOutside)
     }
@@ -57,7 +63,6 @@ export const Search = () => {
 
         document.body.addEventListener('click', handleClickOutside);
         return () => {
-            console.log('test')
             document.body.removeEventListener('click', handleClickOutside)
         }
     }, [])

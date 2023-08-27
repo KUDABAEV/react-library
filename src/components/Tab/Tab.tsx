@@ -5,7 +5,7 @@ import './tab.scss';
 
 type TabProps = {
     title: string,
-    handler: any,
+    handler: () => void,
     id: number;
 }
 

@@ -10,7 +10,7 @@ import './receipts.scss';
 
 type ReceiptsProps = {
     books: any;
-    changeCategoryId: any;
+    changeCategoryId: (index: number) => void;
 }
 
 export const Receipts:React.FC<ReceiptsProps> = ({books, changeCategoryId}) => {

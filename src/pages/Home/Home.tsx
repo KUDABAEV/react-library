@@ -21,7 +21,7 @@ export const Home = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const onChangeCategory = (id) => {
+    const onChangeCategory = (id: number) => {
         dispatch(setCategoryId(id))
     }
     const books = useSelector(booksItems);
@@ -29,12 +29,16 @@ export const Home = () => {
 
     React.useEffect(() => {
         if (categoryId === 0) {
-            dispatch(fetchBooks({
+            dispatch(
+                // @ts-ignore
+                fetchBooks({
                 categoryId
             }))
 
         } else {
-            dispatch(fetchBooks({
+            dispatch(
+                // @ts-ignore
+                fetchBooks({
                 categoryId
             }))
         }
@@ -42,16 +46,18 @@ export const Home = () => {
     }, [categoryId]);
     //
     React.useEffect(() => {
-        let id = window.location.search.split('?categoryId=')[1];
+        let id:any= window.location.search.split('?categoryId=')[1];
         if (id === undefined) {
             id = 0;
         }
-        dispatch(setCategoryId(+id))
+        dispatch(setCategoryId(Number(id)))
     }, [])
     //
 
     React.useEffect(() => {
-        dispatch(fetchSale({
+        dispatch(
+            // @ts-ignore
+            fetchSale({
             categorySale
         }))
 

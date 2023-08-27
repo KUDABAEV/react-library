@@ -7,7 +7,7 @@ import {deleteItemFromCart, selectItemsInBasket, setItemsInBasket} from "../../r
 import {booksItems} from "../../redux/slices/booksSlice";
 import './fullBook.scss';
 
-export const FullBook = () => {
+export const FullBook:React.FC = () => {
 
     const [book,setBook] = React.useState<{
         imageUrl: string;

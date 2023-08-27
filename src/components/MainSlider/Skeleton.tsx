@@ -5,7 +5,6 @@ type BookSkeletonProps = {
     props:any;
 }
 
-
 const BookSkeleton:React.FC<BookSkeletonProps> = (props) => (
     <ContentLoader
         speed={2}
