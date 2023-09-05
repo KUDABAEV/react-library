@@ -16,7 +16,7 @@ export const Social:React.FC = () => {
     ]
 
     return (
-        <div className='social'>
+        <div className='social' id='social'>
             <div className="container">
                 <div className="social__content">
                     <Title title='Следите за нами в социальных сетях'/>

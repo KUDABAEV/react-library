@@ -13,7 +13,6 @@ export const Header:React.FC = () => {
   const totalAmount  = useSelector(selectTotalAmount);
 
   const toggleMenu = () => {
-    console.log('cuka')
     setShowMenu(!isShowMenu)
   }
 
@@ -24,7 +23,7 @@ export const Header:React.FC = () => {
 
             <Logo />
 
-            <Menu show={isShowMenu}/>
+            <Menu show={isShowMenu} toggleMenu={setShowMenu}/>
 
             <Search />
 

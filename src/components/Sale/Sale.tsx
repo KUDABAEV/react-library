@@ -9,7 +9,7 @@ type SaleProps = {
 
 export const Sale:React.FC<SaleProps> = ({books}) => {
     return (
-        <div className='sale'>
+        <div className='sale' id='sale'>
             <Title title='Распродажа'/>
             <MainSlider books={books}/>
         </div>

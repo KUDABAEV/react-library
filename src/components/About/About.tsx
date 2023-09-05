@@ -6,7 +6,7 @@ import './about.scss';
 
 export const About:React.FC = () => {
     return (
-        <div className='about'>
+        <div className='about' id='about'>
             <div className='container'>
                 <div className="about__inner">
                     <Title title='О магазине'/>

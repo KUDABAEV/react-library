@@ -4,27 +4,26 @@ import './menu.scss';
 
 type MenuProps = {
     show?: boolean;
+    toggleMenu?: any;
 }
 
-export const Menu:React.FC<MenuProps> = ({show}) => {
+export const Menu: React.FC<MenuProps> = ({show,toggleMenu}) => {
 
     const arrMenu = [
-        'Акции',
-        'Каталлог',
-        'Доставка',
-        'О магазине',
-        'Блог'
+        {src: '#sale', title: 'Акции'},
+        {src: '#catalog', title: 'Каталлог'},
+        {src: '#delivery', title: 'Доставка'},
+        {src: '#about', title: 'О магазине'},
+        {src: '#social', title: 'Блог'}
     ]
-
-    console.log(show)
 
     return (
         <nav className="nav">
-            <ul className={show ? "menu menu_open": "menu"}>
+            <ul className={show ? "menu menu_open" : "menu"}>
                 {
-                    arrMenu.map((menuItem,index) => (
-                        <li key={index} className="menu__item">
-                            <a href="" className="menu__item-link">{menuItem}</a>
+                    arrMenu.map((menuItem, index) => (
+                        <li key={index} className="menu__item" onClick={() => toggleMenu(false)}>
+                            <a href={menuItem.src} className="menu__item-link">{menuItem.title}</a>
                         </li>
                     ))
                 }

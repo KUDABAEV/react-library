@@ -5,7 +5,7 @@ import './delivery.scss';
 export const Delivery:React.FC = () => {
 
     return (
-        <div className='delivery'>
+        <div className='delivery' id='delivery'>
             <div className="container">
                 <div className="delivery__content">
                     <Title title='Доставка'/>
