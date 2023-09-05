@@ -2,7 +2,11 @@ import React from "react";
 import './menu.scss';
 
 
-export const Menu:React.FC = () => {
+type MenuProps = {
+    show?: boolean;
+}
+
+export const Menu:React.FC<MenuProps> = ({show}) => {
 
     const arrMenu = [
         'Акции',
@@ -12,9 +16,11 @@ export const Menu:React.FC = () => {
         'Блог'
     ]
 
+    console.log(show)
+
     return (
         <nav className="nav">
-            <ul className="menu">
+            <ul className={show ? "menu menu_open": "menu"}>
                 {
                     arrMenu.map((menuItem,index) => (
                         <li key={index} className="menu__item">

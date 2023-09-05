@@ -9,7 +9,13 @@ import './header.scss';
 
 export const Header:React.FC = () => {
 
+  const [isShowMenu, setShowMenu ] = React.useState<boolean>(false)
   const totalAmount  = useSelector(selectTotalAmount);
+
+  const toggleMenu = () => {
+    console.log('cuka')
+    setShowMenu(!isShowMenu)
+  }
 
   return (
       <header className='header'>
@@ -18,7 +24,7 @@ export const Header:React.FC = () => {
 
             <Logo />
 
-            <Menu />
+            <Menu show={isShowMenu}/>
 
             <Search />
 
@@ -35,8 +41,8 @@ export const Header:React.FC = () => {
               </div>
             </div>
 
-            <div className="header__burger">
-              <img src="/img/Group 12.png" alt="" />
+            <div className="header__burger" >
+              <img onClick={toggleMenu} src={isShowMenu ? '/img/burgerClose.png' : "/img/burgerOpen.png"} alt="" />
             </div>
           </div>
         </div>
